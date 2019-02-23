@@ -1,6 +1,6 @@
 ﻿using System;
 using Mazes.Factory;
-using Mazes.utils;
+using Mazes.Utilities;
 
 namespace Mazes
 {
@@ -8,13 +8,14 @@ namespace Mazes
     {
         public static void Main(string[] args)
         {
-            var factory = MazeFactory.Instance;
             var random = new Random();
 
-            var algo = factory.Algorithms[random.Next(maxValue: factory.Algorithms.Count)];
-            var maze = factory.GenerateCarvedMaze(algo);
+            var algo = MazeFactory.Instance.Algorithms[
+                    random.Next(maxValue: MazeFactory.Instance.Algorithms.Count)];
+                    
+            var maze = MazeFactory.Instance.GenerateCarvedMaze(algo);
 
-            factory.DrawMaze(maze, new DrawMazeConsole());
+            MazeFactory.Instance.DrawMaze(maze, new DrawMazeConsole());
             Console.WriteLine($"Algorithm: {algo} {maze}");
         }
     }

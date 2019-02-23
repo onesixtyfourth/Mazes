@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 
 namespace Mazes.Factory
 {
     public class MazeFactory
     {
         private const string AlgorithmNamespace = "Mazes.Algorithms";
+        
         private const int DEFAULT_WIDTH = 5;
 
         public static MazeFactory Instance { get; } = new MazeFactory();

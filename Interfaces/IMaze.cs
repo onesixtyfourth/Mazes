@@ -1,7 +1,7 @@
 using Mazes.Factory;
 using System.Collections.Generic;
 
-namespace Mazes.interfaces
+namespace Mazes.Interfaces
 {
     public interface IMaze
     {

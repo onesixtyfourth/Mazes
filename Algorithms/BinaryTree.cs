@@ -1,5 +1,5 @@
 using Mazes.Factory;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 using System.Linq;
 using System;
 

@@ -1,4 +1,4 @@
-using Mazes.interfaces;
+using Mazes.Interfaces;
 using Mazes.Factory;
 using System.Linq;
 using System;

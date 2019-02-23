@@ -1,5 +1,5 @@
 using System;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 
 namespace Mazes.Algorithms
 {

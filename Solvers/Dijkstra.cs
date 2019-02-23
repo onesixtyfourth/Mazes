@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Mazes.Factory;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 
-namespace Mazes.solvers
+namespace Mazes.Solvers
 {
     public class Dijkstra : ISolveMazes
     {

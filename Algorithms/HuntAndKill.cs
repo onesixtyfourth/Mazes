@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 
 namespace Mazes.Algorithms
 {

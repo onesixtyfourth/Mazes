@@ -2,35 +2,34 @@ using System;
 using System.Linq;
 using System.Text;
 using Mazes.Factory;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 
-namespace Mazes.utils
+namespace Mazes.Utilities
 {
-    public class DrawConsoleDistances : IDrawMazes
+    public class DrawMazeConsole : IDrawMazes
     {
         private const string CORNER = "+";
-        private const string HORIZONTAL = "---";
+
+        private const string HORIZONTAL = "----";
+
         private const string VERTICAL = "|";
+
+        private const string BODY = "    ";
+
 	    private const string VERTPASS = " ";
 
         private IMaze maze;
-        private ISolveMazes solver;
-
-        public DrawConsoleDistances(ISolveMazes solver)
-        {
-            this.solver = solver;
-        }
 
         public void DrawMaze(IMaze maze)
         {
             this.maze = maze;
             var output = new StringBuilder();
-            // output.Insert(0, HORIZONTAL, maze.Width);
 
             for(int i = 0; i < maze.Width; ++i)
             {
                 output.Append($"{CORNER}{HORIZONTAL}");
             }
+
             output.Append(CORNER);
             Console.WriteLine(output.ToString());
 
@@ -49,13 +48,14 @@ namespace Mazes.utils
 
                 if( cell.Connected.Where(c => c.Column < cell.Column).Any() )
                 {
-                    output.Append($"{VERTPASS}{solver.Distances[maze.Grid.IndexOf(cell)],3:D}");
+                    output.Append($"{VERTPASS}{BODY}");
                 }
                 else
                 {
-                    output.Append($"{VERTICAL}{solver.Distances[maze.Grid.IndexOf(cell)],3:D}");    
+                    output.Append($"{VERTICAL}{BODY}");    
                 }
             }
+
             output.Append(VERTICAL);
             output.AppendLine();
 
@@ -63,13 +63,14 @@ namespace Mazes.utils
             {
                 if(cell.Connected.Where(c => c.Row > cell.Row).Any())
                 {
-                     output.Append($"{CORNER}   "); 
+                     output.Append($"{CORNER}{BODY}"); 
                 }
                 else
                 {
                      output.Append($"{CORNER}{HORIZONTAL}"); 
                 }
             }
+            
             output.Append(CORNER);
             return output.ToString();
         }

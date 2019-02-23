@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Mazes.interfaces;
+using Mazes.Interfaces;
 using System.Linq;
 using System;
 
@@ -60,6 +60,7 @@ namespace Mazes.Factory
         public HashSet<Cell> GetNeighbours(IList<Cell> cells)
         {
             var neighbours = new HashSet<Cell>();
+            
             foreach(Cell cell in cells)
             {
                 GetNeighbours(cell).ToList().ForEach(c => neighbours.Add(c));
@@ -88,11 +89,10 @@ namespace Mazes.Factory
         {
             _ = path ?? throw new ArgumentNullException(nameof(path));
 
-                for(int index = 0; index < path.Count() - 1; ++index)
-                {
-                    ConnectCells(path[index], path[index + 1]);
-                }
-            
+            for(int index = 0; index < path.Count() - 1; ++index)
+            {
+                ConnectCells(path[index], path[index + 1]);
+            }            
         }
 
         public override string ToString() => $"Width: {Width}, Height: {Height}";        
