@@ -16,7 +16,7 @@ namespace Mazes
 
             var algo = factory.Algorithms[random.Next(maxValue: factory.Algorithms.Count)];
             // var algo = Type.GetType("Mazes.Algorithms.RecursiveDivision");
-            var maze = factory.GenerateCarvedMaze(algo, 10, 10);
+            var maze = factory.GenerateCarvedMaze(algo);
 
             // var solver = new Dijkstra();
             // solver.Solve(maze, maze.Grid[0]); 
