@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Mazes.interfaces;
 
-namespace Mazes.factory
+namespace Mazes.Factory
 {
     public class MazeFactory
     {

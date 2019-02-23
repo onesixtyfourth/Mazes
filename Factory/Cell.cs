@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Mazes.factory
+namespace Mazes.Factory
 {//TODO override equals and hash for correct operation in a hashset.
     public class Cell
     {

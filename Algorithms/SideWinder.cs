@@ -1,5 +1,5 @@
 using Mazes.interfaces;
-using Mazes.factory;
+using Mazes.Factory;
 using System.Linq;
 using System;
 using System.Collections.Generic;

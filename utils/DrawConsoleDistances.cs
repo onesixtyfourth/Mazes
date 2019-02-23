@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Text;
-using Mazes.factory;
+using Mazes.Factory;
 using Mazes.interfaces;
 
 namespace Mazes.utils

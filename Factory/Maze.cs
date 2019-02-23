@@ -3,7 +3,7 @@ using Mazes.interfaces;
 using System.Linq;
 using System;
 
-namespace Mazes.factory
+namespace Mazes.Factory
 {
     public class Maze : IMaze
     {

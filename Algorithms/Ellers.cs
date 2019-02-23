@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mazes.factory;
+using Mazes.Factory;
 using Mazes.interfaces;
 
 namespace Mazes.Algorithms

@@ -1,4 +1,4 @@
-using Mazes.factory;
+using Mazes.Factory;
 using System.Collections.Generic;
 
 namespace Mazes.interfaces
