@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Mazes.Interfaces;
+using MazeLib.Interfaces;
 using System.Linq;
 using System;
 
-namespace Mazes.Factory
+namespace MazeLib.Factory
 {
     public class Maze : IMaze
     {

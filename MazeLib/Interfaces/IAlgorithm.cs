@@ -1,4 +1,4 @@
-namespace Mazes.Interfaces
+namespace MazeLib.Interfaces
 {
     public interface IAlgorithm
     {

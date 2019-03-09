@@ -1,12 +1,12 @@
 ﻿using System;
-using Mazes.Factory;
-using Mazes.Utilities;
+using MazeLib.Factory;
+using MazeLib.Utilities;
 
-namespace Mazes
+namespace MazeConsole
 {
-    public class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             var random = new Random();
 

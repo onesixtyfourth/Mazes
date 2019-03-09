@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace Mazes.Interfaces
+namespace MazeLib.Interfaces
 {
-    public interface ISolveMazes
+    public interface ISolveMazeLib
     {
         IList<int> Distances { get; set; }
     }

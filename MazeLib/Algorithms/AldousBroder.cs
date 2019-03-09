@@ -1,7 +1,7 @@
 using System;
-using Mazes.Interfaces;
+using MazeLib.Interfaces;
 
-namespace Mazes.Algorithms
+namespace MazeLib.Algorithms
 {
     public class AldousBroder : IAlgorithm
     {

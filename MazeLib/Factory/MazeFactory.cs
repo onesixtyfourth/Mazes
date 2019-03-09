@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Mazes.Interfaces;
+using MazeLib.Interfaces;
 
-namespace Mazes.Factory
+namespace MazeLib.Factory
 {
     public class MazeFactory
     {
-        private const string AlgorithmNamespace = "Mazes.Algorithms";
+        private const string AlgorithmNamespace = "MazeLib.Algorithms";
         
         private const int DEFAULT_WIDTH = 5;
 
@@ -51,7 +51,7 @@ namespace Mazes.Factory
             return maze;
         }
 
-        public void DrawMaze(IMaze maze, IDrawMazes draw)
+        public void DrawMaze(IMaze maze, IDrawMazeLib draw)
         {
             draw.DrawMaze(maze);
         }

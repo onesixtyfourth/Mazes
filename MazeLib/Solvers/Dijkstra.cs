@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using Mazes.Factory;
-using Mazes.Interfaces;
+using MazeLib.Factory;
+using MazeLib.Interfaces;
 
-namespace Mazes.Solvers
+namespace MazeLib.Solvers
 {
-    public class Dijkstra : ISolveMazes
+    public class Dijkstra : ISolveMazeLib
     {
         private const int UNVISITED = -1;
 

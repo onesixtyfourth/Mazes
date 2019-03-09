@@ -1,15 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mazes.Factory;
-using Mazes.Interfaces;
+using MazeLib.Factory;
+using MazeLib.Interfaces;
 
-namespace Mazes.Algorithms
+namespace MazeLib.Algorithms
 {
-    public class SimplifiedPrims : IAlgorithm
-    {
+    public class GrowingTree : IAlgorithm
+    {//First attempt at passing selection methods to the algorithm!
+    // private modifier as causing issues with reflection by adding a class
+    // that can't be instantiated.
+        private delegate Cell SelectCell(List<Cell> cells);
+        private SelectCell Selector;
         private List<Cell> active = new List<Cell>();
         private Random random = new Random();
+
+        public GrowingTree()
+        {
+            Selector = RandomSelection;
+        }
 
         public void Carve(IMaze maze)
         {
@@ -24,7 +33,7 @@ namespace Mazes.Algorithms
                 
                 if(neighbours.Any())
                 {
-                    var next = neighbours[random.Next(neighbours.Count)];
+                    var next = Selector(neighbours);
                     maze.ConnectCells(current, next);
                     active.Add(next);
                 }
@@ -33,6 +42,11 @@ namespace Mazes.Algorithms
                     active.Remove(current);
                 }
             }
+        }
+
+        private Cell RandomSelection(List<Cell> cells)
+        {
+            return cells[random.Next(cells.Count)];
         }
     }
 }

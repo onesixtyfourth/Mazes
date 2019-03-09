@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
-using Mazes.Interfaces;
+using MazeLib.Interfaces;
 
-namespace Mazes.Algorithms
+namespace MazeLib.Algorithms
 {
     public class HuntAndKill : IAlgorithm
     {

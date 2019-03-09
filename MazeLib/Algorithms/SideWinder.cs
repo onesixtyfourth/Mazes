@@ -1,10 +1,10 @@
-using Mazes.Interfaces;
-using Mazes.Factory;
+using MazeLib.Interfaces;
+using MazeLib.Factory;
 using System.Linq;
 using System;
 using System.Collections.Generic;
 
-namespace Mazes.Algorithms
+namespace MazeLib.Algorithms
 {
     public class SideWinder : IAlgorithm
     {

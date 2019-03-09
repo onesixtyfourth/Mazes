@@ -1,9 +1,9 @@
-using Mazes.Factory;
-using Mazes.Interfaces;
+using MazeLib.Factory;
+using MazeLib.Interfaces;
 using System.Linq;
 using System;
 
-namespace Mazes.Algorithms
+namespace MazeLib.Algorithms
 {
     public class BinaryTree : IAlgorithm
     {

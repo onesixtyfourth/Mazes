@@ -1,29 +1,24 @@
 using System;
 using System.Linq;
 using System.Text;
-using Mazes.Factory;
-using Mazes.Interfaces;
+using MazeLib.Factory;
+using MazeLib.Interfaces;
 
-namespace Mazes.Utilitiess
+namespace MazeLib.Utilities
 {
-    public class DrawConsoleDistances : IDrawMazes
+    public class DrawMazeConsole : IDrawMazeLib
     {
         private const string CORNER = "+";
 
-        private const string HORIZONTAL = "---";
+        private const string HORIZONTAL = "----";
 
         private const string VERTICAL = "|";
+
+        private const string BODY = "    ";
 
 	    private const string VERTPASS = " ";
 
         private IMaze maze;
-
-        private ISolveMazes solver;
-
-        public DrawConsoleDistances(ISolveMazes solver)
-        {
-            this.solver = solver;
-        }
 
         public void DrawMaze(IMaze maze)
         {
@@ -53,11 +48,11 @@ namespace Mazes.Utilitiess
 
                 if( cell.Connected.Where(c => c.Column < cell.Column).Any() )
                 {
-                    output.Append($"{VERTPASS}{solver.Distances[maze.Grid.IndexOf(cell)],3:D}");
+                    output.Append($"{VERTPASS}{BODY}");
                 }
                 else
                 {
-                    output.Append($"{VERTICAL}{solver.Distances[maze.Grid.IndexOf(cell)],3:D}");    
+                    output.Append($"{VERTICAL}{BODY}");    
                 }
             }
 
@@ -68,7 +63,7 @@ namespace Mazes.Utilitiess
             {
                 if(cell.Connected.Where(c => c.Row > cell.Row).Any())
                 {
-                     output.Append($"{CORNER}   "); 
+                     output.Append($"{CORNER}{BODY}"); 
                 }
                 else
                 {

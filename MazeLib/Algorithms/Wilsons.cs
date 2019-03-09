@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mazes.Factory;
-using Mazes.Interfaces;
+using MazeLib.Factory;
+using MazeLib.Interfaces;
 
-namespace Mazes.Algorithms
+namespace MazeLib.Algorithms
 {
     public class Wilsons : IAlgorithm
     {
