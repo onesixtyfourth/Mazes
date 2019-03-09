@@ -4,9 +4,9 @@ using System.Text;
 using MazeLib.Factory;
 using MazeLib.Interfaces;
 
-namespace MazeLib.Utilitiess
+namespace MazeLib.Utilities
 {
-    public class DrawConsoleDistances : IDrawMazeLib
+    public class DrawConsoleDistances : IDrawMazes
     {
         private const string CORNER = "+";
 
@@ -18,9 +18,9 @@ namespace MazeLib.Utilitiess
 
         private IMaze maze;
 
-        private ISolveMazeLib solver;
+        private ISolveMazes solver;
 
-        public DrawConsoleDistances(ISolveMazeLib solver)
+        public DrawConsoleDistances(ISolveMazes solver)
         {
             this.solver = solver;
         }

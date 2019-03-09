@@ -1,6 +1,6 @@
 namespace MazeLib.Interfaces
 {
-    public interface IDrawMazeLib
+    public interface IDrawMazes
     {
          void DrawMaze(IMaze maze);
     }

@@ -5,7 +5,7 @@ using MazeLib.Interfaces;
 
 namespace MazeLib.Solvers
 {
-    public class Dijkstra : ISolveMazeLib
+    public class Dijkstra : ISolveMazes
     {
         private const int UNVISITED = -1;
 

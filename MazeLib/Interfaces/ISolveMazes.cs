@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MazeLib.Interfaces
 {
-    public interface ISolveMazeLib
+    public interface ISolveMazes
     {
         IList<int> Distances { get; set; }
     }

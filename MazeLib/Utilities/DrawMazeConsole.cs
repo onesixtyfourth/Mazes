@@ -6,7 +6,7 @@ using MazeLib.Interfaces;
 
 namespace MazeLib.Utilities
 {
-    public class DrawMazeConsole : IDrawMazeLib
+    public class DrawMazeConsole : IDrawMazes
     {
         private const string CORNER = "+";
 

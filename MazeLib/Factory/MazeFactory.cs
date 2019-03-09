@@ -51,7 +51,7 @@ namespace MazeLib.Factory
             return maze;
         }
 
-        public void DrawMaze(IMaze maze, IDrawMazeLib draw)
+        public void DrawMaze(IMaze maze, IDrawMazes draw)
         {
             draw.DrawMaze(maze);
         }
