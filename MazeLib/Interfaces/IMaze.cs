@@ -8,7 +8,7 @@ namespace MazeLib.Interfaces
         int Width { get;  }
         int Height {get; }
         int Size{get;}    
-        IList<Cell> Grid { get; set;}   
+        IList<Cell> Grid { get;}   
         void ResetGrid();
         Cell GetCell(int row, int column);
         IList<Cell> GetRow(int row);

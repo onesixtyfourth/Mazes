@@ -7,13 +7,13 @@ namespace MazeLib.Factory
 {
     public class Maze : IMaze
     {
-        public IList<Cell> Grid { get; set; }
-
-        public int Size { get{ return Width * Height;}}
+        public IList<Cell> Grid { get; private set; }        
 
         public int Width { get; private set; }
 
         public int Height {get; private set;}
+
+        public int Size { get{ return Width * Height;}}
 
         public Maze(int width, int height)
         {
