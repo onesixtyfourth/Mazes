@@ -11,6 +11,8 @@ namespace MazeLib.Algorithms
 
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             foreach (Cell cell in maze.Grid)
             {
                 var neighbours = maze.GetNeighbours(cell)

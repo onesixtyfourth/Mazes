@@ -13,6 +13,8 @@ namespace MazeLib.Algorithms
 
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             active.Add(maze.Grid[random.Next(maze.Grid.Count)]);
 
             while(active.Any())

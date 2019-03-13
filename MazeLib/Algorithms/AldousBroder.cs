@@ -9,6 +9,8 @@ namespace MazeLib.Algorithms
 
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+
             var currentCell = maze.Grid[random.Next(maze.Grid.Count)];
             var unvisitedCells = maze.Grid.Count - 1;
 

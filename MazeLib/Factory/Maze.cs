@@ -7,7 +7,7 @@ namespace MazeLib.Factory
 {
     public class Maze : IMaze
     {
-        public IList<Cell> Grid { get; private set; }        
+        public IList<Cell> Grid { get; private set; } = new List<Cell>();    
 
         public int Width { get; private set; }
 
@@ -24,7 +24,6 @@ namespace MazeLib.Factory
 
         public void ResetGrid()
         {
-            Grid = new List<Cell>();
             for(int i = 0; i < Height; ++i)
             {
                 for(int j = 0; j < Width; ++j)
@@ -42,6 +41,8 @@ namespace MazeLib.Factory
 
         public IList<Cell> GetNeighbours(Cell cell)
         {
+            _ = cell ?? throw new ArgumentNullException(nameof(cell));
+
             return Grid.Where((c) => 
             {
                 var result = false;
@@ -59,6 +60,8 @@ namespace MazeLib.Factory
 
         public HashSet<Cell> GetNeighbours(IList<Cell> cells)
         {
+            _ = cells ?? throw new ArgumentNullException(nameof(cells));
+
             var neighbours = new HashSet<Cell>();
             
             foreach(Cell cell in cells)
@@ -70,6 +73,8 @@ namespace MazeLib.Factory
 
         public HashSet<Cell> GetConnectedCells(IList<Cell> path)
         {
+            _ = path ?? throw new ArgumentNullException(nameof(path));
+
             var connected = new HashSet<Cell>();
 
             foreach(Cell cell in path)
@@ -81,6 +86,9 @@ namespace MazeLib.Factory
 
         public void ConnectCells(Cell first, Cell second)
         {
+            _ = first ?? throw new ArgumentNullException(nameof(first));
+            _ = second ?? throw new ArgumentNullException(nameof(second));
+
             first.ConnectCell(second);
             second.ConnectCell(first);
         }

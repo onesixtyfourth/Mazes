@@ -12,6 +12,8 @@ namespace MazeLib.Algorithms
 
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             for(int i = 0; i < maze.Height; ++i)
             {
                 var run = new List<Cell>();

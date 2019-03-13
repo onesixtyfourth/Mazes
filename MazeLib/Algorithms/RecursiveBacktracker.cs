@@ -13,6 +13,8 @@ namespace MazeLib.Algorithms
 
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             var stack = new Stack<Cell>();
             stack.Push(maze.Grid[random.Next(maze.Grid.Count)]);
 

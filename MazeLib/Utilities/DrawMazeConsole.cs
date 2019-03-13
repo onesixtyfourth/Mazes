@@ -22,6 +22,8 @@ namespace MazeLib.Utilities
 
         public void DrawMaze(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+
             this.maze = maze;
             var output = new StringBuilder();
 
@@ -39,7 +41,7 @@ namespace MazeLib.Utilities
             }
         }
 
-        public string DrawRow(int row)
+        private string DrawRow(int row)
         {
             var output = new StringBuilder();
 

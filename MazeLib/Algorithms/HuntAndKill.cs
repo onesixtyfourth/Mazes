@@ -9,6 +9,8 @@ namespace MazeLib.Algorithms
         private Random random = new Random();
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             var current = maze.Grid[random.Next(maze.Grid.Count)];
 
             while(current != null)

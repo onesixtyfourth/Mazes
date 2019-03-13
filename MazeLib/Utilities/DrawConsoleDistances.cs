@@ -10,7 +10,7 @@ namespace MazeLib.Utilities
     {
         private const string CORNER = "+";
 
-        private const string HORIZONTAL = "---";
+        private const string HORIZONTAL = "----";
 
         private const string VERTICAL = "|";
 
@@ -22,11 +22,15 @@ namespace MazeLib.Utilities
 
         public DrawConsoleDistances(ISolveMazes solver)
         {
+            _ = solver ?? throw new ArgumentNullException(nameof(solver));
+
             this.solver = solver;
         }
 
         public void DrawMaze(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             this.maze = maze;
             var output = new StringBuilder();
 
@@ -44,7 +48,7 @@ namespace MazeLib.Utilities
             }
         }
 
-        public string DrawRow(int row)
+        private string DrawRow(int row)
         {
             var output = new StringBuilder();
 
@@ -53,11 +57,11 @@ namespace MazeLib.Utilities
 
                 if( cell.Connected.Where(c => c.Column < cell.Column).Any() )
                 {
-                    output.Append($"{VERTPASS}{solver.Distances[maze.Grid.IndexOf(cell)],3:D}");
+                    output.Append($"{VERTPASS}{solver.Distances[maze.Grid.IndexOf(cell)],-4:D}");
                 }
                 else
                 {
-                    output.Append($"{VERTICAL}{solver.Distances[maze.Grid.IndexOf(cell)],3:D}");    
+                    output.Append($"{VERTICAL}{solver.Distances[maze.Grid.IndexOf(cell)],-4:D}");    
                 }
             }
 
@@ -68,7 +72,7 @@ namespace MazeLib.Utilities
             {
                 if(cell.Connected.Where(c => c.Row > cell.Row).Any())
                 {
-                     output.Append($"{CORNER}   "); 
+                     output.Append($"{CORNER}    "); 
                 }
                 else
                 {

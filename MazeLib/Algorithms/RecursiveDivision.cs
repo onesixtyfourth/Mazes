@@ -11,6 +11,8 @@ namespace MazeLib.Algorithms
 
         public void Carve(IMaze maze)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            
             this.maze = maze;
             Divide(maze.Grid[0], maze.Grid[maze.Grid.Count - 1]);
         }

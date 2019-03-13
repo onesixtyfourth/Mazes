@@ -30,10 +30,11 @@ namespace MazeLib.Factory
             }
         }
 
-        public IAlgorithm CreateAlgorithm(Type type)
+        public IAlgorithm CreateAlgorithm(Type algorithm)
         {
-            _ = type ?? throw new ArgumentNullException(nameof(type));
-            return (IAlgorithm)Activator.CreateInstance(type, true);
+            _ = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
+
+            return (IAlgorithm)Activator.CreateInstance(algorithm, true);
         }
 
         public IMaze GenerateMaze(int width = DEFAULT_WIDTH, int height = DEFAULT_WIDTH)
@@ -45,6 +46,8 @@ namespace MazeLib.Factory
                                         int width = DEFAULT_WIDTH, 
                                         int height = DEFAULT_WIDTH)
         {
+            _ = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
+
             var maze = new Maze(width, height);
             var algo = CreateAlgorithm(algorithm);
             algo.Carve(maze);
@@ -53,6 +56,9 @@ namespace MazeLib.Factory
 
         public void DrawMaze(IMaze maze, IDrawMazes draw)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            _ = draw ?? throw new ArgumentNullException(nameof(draw));
+
             draw.DrawMaze(maze);
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MazeLib.Factory;
@@ -13,6 +14,9 @@ namespace MazeLib.Solvers
 
         public IList<int> Solve(IMaze maze, Cell start)
         {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            _ = start ?? throw new ArgumentNullException(nameof(start));
+
             Distances = Enumerable.Repeat(UNVISITED, maze.Size).ToList();
             var currentDistance = Distances[maze.Grid.IndexOf(start)] = 0;   
 

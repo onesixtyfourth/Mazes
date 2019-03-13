@@ -4,10 +4,10 @@ namespace MazeLib.Factory
 {//TODO override equals and hash for correct operation in a hashset.
     public class Cell
     {
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public int Row { get; private set; }
+        public int Column { get; private set; }
 
-        public HashSet<Cell> Connected {get; set;} = new HashSet<Cell>();
+        public HashSet<Cell> Connected {get; private set;} = new HashSet<Cell>();
 
         public Cell(int row, int column)
         {
