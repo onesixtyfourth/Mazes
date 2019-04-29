@@ -154,6 +154,7 @@ namespace MazeLib.Test
 
             var cellOne = maze.GetCell(0, 0);
             var cellTwo = maze.GetCell(0, 1);
+
             
             Assert.True(cellOne.Connected.Count == 1 && cellOne.Connected.First().Equals(cellTwo));
             Assert.True(cellTwo.Connected.Count == 1 && cellTwo.Connected.First().Equals(cellOne));
