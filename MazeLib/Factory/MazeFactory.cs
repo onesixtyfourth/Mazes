@@ -10,7 +10,7 @@ namespace MazeLib.Factory
     {
         private const string AlgorithmNamespace = "MazeLib.Algorithms";
         
-        private const int DEFAULT_WIDTH = 5;
+        public const int DEFAULT_WIDTH = 2;
 
         public static MazeFactory Instance { get; } = new MazeFactory();
 

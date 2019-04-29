@@ -15,7 +15,7 @@ namespace MazeLib.Test
         }
 
         [Fact]
-        public void ConstructedCellHasEmptyHasSet()
+        public void ConstructedCellHasEmptyHashSet()
         {
             var aCell = new Cell(1, 1);
             Assert.Empty(aCell.Connected);

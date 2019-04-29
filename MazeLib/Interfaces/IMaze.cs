@@ -17,6 +17,6 @@ namespace MazeLib.Interfaces
         HashSet<Cell> GetNeighbours(IList<Cell> cells);
         HashSet<Cell> GetConnectedCells(IList<Cell> path);
         void ConnectCells(Cell first, Cell second);
-        void connectPath(List<Cell> path);
+        void ConnectPath(List<Cell> path);
     }
 }

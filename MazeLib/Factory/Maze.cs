@@ -17,6 +17,11 @@ namespace MazeLib.Factory
 
         public Maze(int width, int height)
         {
+            if(width < MazeFactory.DEFAULT_WIDTH || height < MazeFactory.DEFAULT_WIDTH)
+            {
+                throw new ArgumentException($"width: {width} or height: {height} were < 0");
+            }
+            
             Width = width;
             Height = height;
             ResetGrid();
@@ -93,7 +98,7 @@ namespace MazeLib.Factory
             second.ConnectCell(first);
         }
 
-        public void connectPath(List<Cell> path)
+        public void ConnectPath(List<Cell> path)
         {
             _ = path ?? throw new ArgumentNullException(nameof(path));
 

@@ -43,7 +43,7 @@ namespace MazeLib.Algorithms
                     path.Add(currentCell);
                 }
 
-                maze.connectPath(path);
+                maze.ConnectPath(path);
                 targets.Clear();
             }
         }
