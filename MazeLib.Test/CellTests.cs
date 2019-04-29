@@ -69,6 +69,13 @@ namespace MazeLib.Test
 
             Assert.False(cellOne.Equals(cellTwo));
         }
+
+        [Fact]
+        public void EqualsMethodFalseForNullParameter()
+        {
+            var cellOne = new Cell(1, 1);
+            Assert.False(cellOne.Equals(null));
+        }
         
     }
 }
