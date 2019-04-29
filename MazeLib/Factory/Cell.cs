@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
 
 namespace MazeLib.Factory
-{//TODO override equals and hash for correct operation in a hashset.
+{
     public class Cell
     {
         public int Row { get; private set; }
@@ -9,8 +10,14 @@ namespace MazeLib.Factory
 
         public HashSet<Cell> Connected {get; private set;} = new HashSet<Cell>();
 
+
         public Cell(int row, int column)
         {
+            if(row < 0 || column < 0)
+            {
+                throw new ArgumentException($"Row: {row} or column: {column} is less than 0 (zero)");
+            }
+            
             Row = row;
             Column = column;
         }
@@ -18,5 +25,19 @@ namespace MazeLib.Factory
         public void ConnectCell(Cell cell) => Connected.Add(cell);
 
         public override string ToString() => $"Row: {Row}, Column: {Column}";
+
+        public override bool Equals(object value)
+        {
+            var returnValue = false;
+            var aCell = value as Cell;
+
+            if(!Object.ReferenceEquals(null, aCell))
+            {
+                returnValue = Row == aCell.Row
+                    && Column == aCell.Column
+                    && Connected == aCell.Connected;
+            }
+            return returnValue;
+        }
     }
 }
