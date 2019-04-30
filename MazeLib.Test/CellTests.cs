@@ -76,6 +76,15 @@ namespace MazeLib.Test
             var cellOne = new Cell(1, 1);
             Assert.False(cellOne.Equals(null));
         }
+
+        [Fact]
+        public void GetHashCodeProducesUniqueResults()
+        {
+            var cellOne = new Cell(0, 0);
+            var cellTwo = new Cell(0, 1);
+
+            Assert.False(cellOne.GetHashCode() == cellTwo.GetHashCode());
+        }
         
     }
 }

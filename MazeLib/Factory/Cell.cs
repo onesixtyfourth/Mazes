@@ -39,5 +39,10 @@ namespace MazeLib.Factory
             }
             return returnValue;
         }
+
+        public override int GetHashCode()
+        {
+            return new {Row, Column, Connected}.GetHashCode();
+        }
     }
 }
