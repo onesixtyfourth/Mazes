@@ -77,7 +77,7 @@ namespace MazeLib.Test
             Assert.Throws<ArgumentNullException>(() => maze.GetNeighbours(cellList));
         }
 
-        [Fact(Skip = "Test/Code needs work does not return as expected.")]
+        [Fact]
         public void GetNeighboursListReturnsCorrectSet()
         {
             var maze = new Maze(2, 2);
@@ -86,7 +86,9 @@ namespace MazeLib.Test
             cellList.Add(maze.GetCell(1, 1));
             var neighbours = maze.GetNeighbours(cellList);
 
-            Assert.True(neighbours.Count == 2 && neighbours.Sum(x => x.Row) == 0);
+            Assert.True(neighbours.Count == 2);
+            Assert.False(neighbours.Contains(cellList[0]));
+            Assert.False(neighbours.Contains(cellList[1]));
         }
 
         [Fact]
@@ -98,10 +100,20 @@ namespace MazeLib.Test
             Assert.Throws<ArgumentNullException>(() => maze.GetConnectedCells(cellList));
         }
 
-        [Fact(Skip = "Test/Code needs work does not return as expected.")]
+        [Fact]
         public void GetConnectedCellsReturnsCorrectSet()
         {
+            var maze = new Maze(2, 2);
+            var cellList = new List<Cell>();
+            
+            maze.ConnectCells(maze.GetCell(0, 0), maze.GetCell(0, 1));
+            maze.ConnectCells(maze.GetCell(0, 0), maze.GetCell(1, 0));
 
+            cellList.Add(maze.GetCell(0, 0));
+            var connected = maze.GetConnectedCells(cellList);
+
+            Assert.True(connected.Count == 2);
+            Assert.False(connected.Contains(maze.GetCell(0, 0)));
         }
 
         [Fact]

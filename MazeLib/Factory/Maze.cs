@@ -73,6 +73,8 @@ namespace MazeLib.Factory
             {
                 GetNeighbours(cell).ToList().ForEach(c => neighbours.Add(c));
             }
+
+            neighbours.ExceptWith(cells);
             return neighbours;
         }
 
@@ -86,6 +88,8 @@ namespace MazeLib.Factory
             {
                 connected.UnionWith(cell.Connected);
             }
+
+            connected.ExceptWith(path);
             return connected;
         }
 
