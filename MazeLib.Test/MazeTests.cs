@@ -171,5 +171,46 @@ namespace MazeLib.Test
             Assert.True(cellOne.Connected.Count == 1 && cellOne.Connected.First().Equals(cellTwo));
             Assert.True(cellTwo.Connected.Count == 1 && cellTwo.Connected.First().Equals(cellOne));
         }
+
+        [Fact]
+        public void EqualsMethodReturnsFalseCorrectly()
+        {
+            var mazeOne = new Maze(2, 2);
+            var mazeTwo = new Maze(2, 2);
+
+            Assert.False(mazeOne.Equals(mazeTwo));
+        }
+
+        [Fact]
+        public void EqualsMethodSymmetricAndReflexive()
+        {
+            var mazeOne = new Maze(2, 2);
+            var mazeTwo = mazeOne;
+
+            Assert.True(mazeOne == mazeTwo);
+            Assert.True(mazeOne.Equals(mazeTwo));
+            Assert.True(mazeTwo.Equals(mazeOne));
+        }
+
+        [Fact]
+        public void EqualsMethodTransitive()
+        {
+            var mazeOne = new Maze(2, 2);
+            var mazeTwo = mazeOne;
+            var mazeThree = mazeTwo;
+
+            Assert.True(mazeOne.Equals(mazeTwo));
+            Assert.True(mazeTwo.Equals(mazeThree));
+            Assert.True(mazeThree.Equals(mazeTwo));
+        }
+
+        [Fact]
+        public void GetHashCodeProducesuniqueResult()
+        {
+            var mazeOne = new Maze(2, 2);
+            var mazeTwo = new Maze(2, 2);
+
+            Assert.False(mazeOne.GetHashCode() == mazeTwo.GetHashCode());
+        }
     }
 }

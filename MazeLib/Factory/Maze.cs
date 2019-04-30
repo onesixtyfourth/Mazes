@@ -112,6 +112,26 @@ namespace MazeLib.Factory
             }            
         }
 
-        public override string ToString() => $"Width: {Width}, Height: {Height}";        
+        public override string ToString() => $"Width: {Width}, Height: {Height}";   
+
+        public override bool Equals(object obj)
+        {
+            var returnValue = false;
+            var aMaze = obj as Maze;
+
+            if(!Object.ReferenceEquals(null, aMaze))
+            {
+                returnValue = Width == aMaze.Width
+                    && Height == aMaze.Height
+                    && Grid == aMaze.Grid;
+            }
+
+            return returnValue;
+        }   
+
+        public override int GetHashCode()
+        {
+            return new {Width, Height, Grid}.GetHashCode();
+        }  
     }
 }
