@@ -9,8 +9,6 @@ namespace MazeLib.Factory
     public class MazeFactory
     {
         private const string AlgorithmNamespace = "MazeLib.Algorithms";
-        
-        public const int DEFAULT_WIDTH = 2;
 
         public static MazeFactory Instance { get; } = new MazeFactory();
 
@@ -37,14 +35,14 @@ namespace MazeLib.Factory
             return (IAlgorithm)Activator.CreateInstance(algorithm, true);
         }
 
-        public IMaze GenerateMaze(int width = DEFAULT_WIDTH, int height = DEFAULT_WIDTH)
+        public IMaze GenerateMaze(int width = Maze.DEFAULT_WIDTH, int height = Maze.DEFAULT_WIDTH)
         {
             return new Maze(width, height);
         }
 
         public IMaze GenerateCarvedMaze(Type algorithm, 
-                                        int width = DEFAULT_WIDTH, 
-                                        int height = DEFAULT_WIDTH)
+                                        int width = Maze.DEFAULT_WIDTH, 
+                                        int height = Maze.DEFAULT_WIDTH)
         {
             _ = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
 

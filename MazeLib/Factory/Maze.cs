@@ -15,9 +15,11 @@ namespace MazeLib.Factory
 
         public int Size { get{ return Width * Height;}}
 
-        public Maze(int width, int height)
+        public const int DEFAULT_WIDTH = 2;
+
+        public Maze(int width = DEFAULT_WIDTH, int height = DEFAULT_WIDTH)
         {
-            if(width < MazeFactory.DEFAULT_WIDTH || height < MazeFactory.DEFAULT_WIDTH)
+            if(width < DEFAULT_WIDTH || height < DEFAULT_WIDTH)
             {
                 throw new ArgumentException($"width: {width} or height: {height} were < 0");
             }
