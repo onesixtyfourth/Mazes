@@ -62,8 +62,6 @@ namespace MazeLib.Solvers
 
         public IList<Cell> FindLongestPath(IMaze maze)
         {
-            var path = new List<Cell>();
-
             var furthest = Distances.IndexOf(Distances.Max());
 
             return FindPath(maze, maze.Grid[furthest]);
