@@ -40,11 +40,33 @@ namespace MazeLib.Solvers
             return Distances;
         }
 
-        public IList<Cell> FindPath(Cell start, Cell end)
+        public IList<Cell> FindPath(IMaze maze, Cell goal)
+        {
+            var path = new List<Cell>();
+            var start = maze.Grid[Distances.Single(i => i == 0)];
+            var currentDistance = Distances[maze.Grid.IndexOf(goal)];
+
+            path.Add(goal);
+
+            do
+            {
+                var potential = path.Last().Connected
+                    .Where(c => Distances[maze.Grid.IndexOf(c)] < currentDistance);
+                path.Add(potential.First());
+                currentDistance = Distances[maze.Grid.IndexOf(path.Last())];
+
+            }while( path.Last() != start);            
+
+            return path;
+        }
+
+        public IList<Cell> FindLongestPath(IMaze maze)
         {
             var path = new List<Cell>();
 
-            return path;
+            var furthest = Distances.IndexOf(Distances.Max());
+
+            return FindPath(maze, maze.Grid[furthest]);
         }
     }
 }

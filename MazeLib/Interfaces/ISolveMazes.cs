@@ -7,5 +7,7 @@ namespace MazeLib.Interfaces
     {
         IList<int> Distances { get; set; }
         IList<int> Solve(IMaze maze, Cell start);
+        IList<Cell> FindPath(IMaze maze, Cell goal);
+        IList<Cell> FindLongestPath(IMaze maze);
     }
 }

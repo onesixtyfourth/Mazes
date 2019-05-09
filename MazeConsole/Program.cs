@@ -19,8 +19,12 @@ namespace MazeConsole
             var solver = new Dijkstra();
             var solved = instance.GenerateCarveAndSolve(algorithm, solver, 5, 5);
             
-            instance.DrawMaze(solved, new DrawMazeConsole());
+            instance.DrawMaze(solved, new DrawConsoleDistances(solved.Solver));
             Console.WriteLine($"Algorithm: {solved.Algorithm} {solved}");
+
+            var path = solved.Solver.FindLongestPath(solved);
+
+            Console.WriteLine($"Path: {String.Join(", ", path)}");
         }
     }
 }
