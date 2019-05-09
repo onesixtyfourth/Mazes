@@ -29,7 +29,7 @@ namespace MazeLib.Factory
             ResetGrid();
         }
 
-        public void ResetGrid()
+        private void ResetGrid()
         {
             for(int i = 0; i < Height; ++i)
             {

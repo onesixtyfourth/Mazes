@@ -48,9 +48,7 @@ namespace MazeLib.Factory
         
         public HashSet<Cell> GetNeighbours(IList<Cell> cells) => maze.GetNeighbours(cells);
         
-        public IList<Cell> GetRow(int row) => maze.GetRow(row);        
-
-        public void ResetGrid() => maze.ResetGrid();
+        public IList<Cell> GetRow(int row) => maze.GetRow(row); 
 
         public override string ToString() => maze.ToString();
 
