@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using MazeLib.Factory;
 using MazeLib.Utilities;
+using MazeLib.Solvers;
 
 namespace MazeLib.Test
 {
@@ -82,6 +83,40 @@ namespace MazeLib.Test
         {
             Assert.Throws<ArgumentNullException>(
                 () => MazeFactory.Instance.DrawMaze(new Maze(2, 2), null));
+        }
+
+        [Fact]
+        public void GenerateCarveAndSolveNullalgorithmThrows()
+        {
+            Assert.Throws<ArgumentNullException>(() => 
+                MazeFactory.Instance.GenerateCarveAndSolve(null, 
+                                                            new Dijkstra(), 
+                                                            2, 2));
+        }
+
+        [Fact]
+        public void GenerateCarveAndSolveNullSolverThrows()
+        {
+            Assert.Throws<ArgumentNullException>(() => 
+                MazeFactory.Instance.GenerateCarveAndSolve(
+                    Type.GetType("MazeLib.Algorithms.BinaryTree, MazeLib"), 
+                    null, 
+                    2, 2));
+        }
+
+        [Fact]
+        public void GenerateCarveAndSolveCreatesCorrectly()
+        {
+            var solvedMaze = MazeFactory.Instance.GenerateCarveAndSolve(
+                Type.GetType("MazeLib.Algorithms.BinaryTree, MazeLib"),
+                new Dijkstra(),
+                5, 5
+            );
+
+            Assert.NotNull(solvedMaze);
+            Assert.NotNull(solvedMaze.Solver);
+            Assert.NotNull(solvedMaze.Algorithm);
+            Assert.Equal(solvedMaze.Size, solvedMaze.Width * solvedMaze.Height);
         }
     }
 }

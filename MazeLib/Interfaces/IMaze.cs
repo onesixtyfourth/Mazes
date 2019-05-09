@@ -5,8 +5,8 @@ namespace MazeLib.Interfaces
 {
     public interface IMaze
     {
-        int Width { get;  }
-        int Height {get; }
+        int Width { get;}
+        int Height {get;}
         int Size{get;}    
         IList<Cell> Grid { get;}   
         void ResetGrid();

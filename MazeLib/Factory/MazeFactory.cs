@@ -52,6 +52,36 @@ namespace MazeLib.Factory
             return maze;
         }
 
+        public SolvedMaze GenerateCarveAndSolve(Type algorithm, 
+                                        ISolveMazes solver, 
+                                        int width = Maze.DEFAULT_WIDTH, 
+                                        int height = Maze.DEFAULT_WIDTH)
+        {
+            _ = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
+            _ = solver ?? throw new ArgumentNullException(nameof(solver));
+
+            var maze = (Maze)GenerateMaze(width, height);
+            var algo = CreateAlgorithm(algorithm); 
+
+            return new SolvedMaze(maze, algo, solver);
+        }
+
+        public void CarveMaze(IMaze maze, IAlgorithm algorithm)
+        {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            _ = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
+
+            algorithm.Carve(maze);
+        }
+
+        public void SolveMaze(IMaze maze, ISolveMazes solver)
+        {
+            _ = maze ?? throw new ArgumentNullException(nameof(maze));
+            _ = solver ?? throw new ArgumentNullException(nameof(solver));
+
+            solver.Solve(maze, maze.Grid[0]);
+        }
+
         public void DrawMaze(IMaze maze, IDrawMazes draw)
         {
             _ = maze ?? throw new ArgumentNullException(nameof(maze));

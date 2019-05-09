@@ -13,13 +13,14 @@ namespace MazeConsole
         static void Main(string[] args)
         {
             var random = new Random();
+            var instance = MazeFactory.Instance;
 
-            var algorithmType = MazeFactory.Instance.Algorithms[
-                    random.Next(maxValue: MazeFactory.Instance.Algorithms.Count)];
-                    
-            var maze = MazeFactory.Instance.GenerateCarvedMaze(algorithmType, 5, 5);
-            MazeFactory.Instance.DrawMaze(maze, new DrawMazeConsole());
-            Console.WriteLine($"Algorithm: {algorithmType} {maze}");
+            var algorithm = instance.Algorithms[random.Next(maxValue: instance.Algorithms.Count)];            
+            var solver = new Dijkstra();
+            var solved = instance.GenerateCarveAndSolve(algorithm, solver, 5, 5);
+            
+            instance.DrawMaze(solved, new DrawMazeConsole());
+            Console.WriteLine($"Algorithm: {solved.Algorithm} {solved}");
         }
     }
 }

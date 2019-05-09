@@ -21,7 +21,7 @@ namespace MazeLib.Factory
         {
             if(width < DEFAULT_WIDTH || height < DEFAULT_WIDTH)
             {
-                throw new ArgumentException($"width: {width} or height: {height} were < 0");
+                throw new ArgumentException($"width: {width} or height: {height} were < {DEFAULT_WIDTH}");
             }
             
             Width = width;
