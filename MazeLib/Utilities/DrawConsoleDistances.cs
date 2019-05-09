@@ -14,7 +14,7 @@ namespace MazeLib.Utilities
 
         private const string VERTICAL = "|";
 
-	    private const string VERTPASS = " ";
+	    private const string VERTPASS = " "; 
 
         private IMaze maze;
 

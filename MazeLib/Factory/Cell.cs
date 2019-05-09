@@ -24,7 +24,7 @@ namespace MazeLib.Factory
 
         public void ConnectCell(Cell cell) => Connected.Add(cell);
 
-        public override string ToString() => $"Row: {Row}, Column: {Column}";
+        public override string ToString() => $"[{Row}:{Column}]";
 
         public override bool Equals(object value)
         {
