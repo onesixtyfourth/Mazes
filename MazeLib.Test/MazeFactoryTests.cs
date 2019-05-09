@@ -105,6 +105,16 @@ namespace MazeLib.Test
         }
 
         [Fact]
+        public void GenerateCarveAndSolveInvalidDimensionThrows()
+        {
+            Assert.Throws<ArgumentException>(() => 
+                MazeFactory.Instance.GenerateCarveAndSolve(
+                    Type.GetType("MazeLib.Algorithms.BinaryTree, MazeLib"), 
+                    new Dijkstra(),
+                    0, 0));
+        }
+
+        [Fact]
         public void GenerateCarveAndSolveCreatesCorrectly()
         {
             var solvedMaze = MazeFactory.Instance.GenerateCarveAndSolve(
