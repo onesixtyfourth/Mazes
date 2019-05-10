@@ -11,7 +11,7 @@ namespace MazeLib.Solvers
         private const int UNVISITED = -1;
 
         public IList<int> Distances { get; set; }
-
+       
         public IList<int> Solve(IMaze maze, Cell start)
         {
             _ = maze ?? throw new ArgumentNullException(nameof(maze));
@@ -66,5 +66,22 @@ namespace MazeLib.Solvers
 
             return FindPath(maze, maze.Grid[furthest]);
         }
+
+        public IList<Cell> DeadEnds(IMaze maze) => maze.Grid.Where(c => c.Connected.Count() == 1).ToList();
+
+        public IList<Cell> Junctions(IMaze maze) => maze.Grid.Where(c => c.Connected.Count() == 3).ToList();
+
+        public IList<Cell> Crossroads(IMaze maze) => maze.Grid.Where(c => c.Connected.Count() == 4).ToList();
+
+        public int Branches(IMaze maze) => Junctions(maze).Count() + (Crossroads(maze).Count * 2);
+
+        public int Terminations(IMaze maze) => Branches(maze) + 2;
+
+        public int Passages(IMaze maze)
+        {
+            return ((Junctions(maze).Count() * 3) + (Crossroads(maze).Count() * 4) + Terminations(maze)) / 2;
+        }
+
+        public int Valence(IMaze maze) => (Terminations(maze) - Branches(maze) - 2) / 2;
     }
 }

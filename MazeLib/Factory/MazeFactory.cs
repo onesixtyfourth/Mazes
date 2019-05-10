@@ -60,10 +60,10 @@ namespace MazeLib.Factory
             _ = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
             _ = solver ?? throw new ArgumentNullException(nameof(solver));
 
-            var maze = (Maze)GenerateMaze(width, height);
+            var maze = GenerateMaze(width, height);
             var algo = CreateAlgorithm(algorithm); 
 
-            return new SolvedMaze(maze, algo, solver);
+            return new SolvedMaze((Maze)maze, algo, solver);
         }
 
         public void CarveMaze(IMaze maze, IAlgorithm algorithm)
