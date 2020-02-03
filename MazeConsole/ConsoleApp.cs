@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using CommandLine;
 using Microsoft.Extensions.Logging;
 
-namespace cmdLinePoc
+namespace MazeConsole
 {
     public class ConsoleApp 
     {
         private readonly ILogger<ConsoleApp> log;
-        private const string _readPrompt = "console-> ";
+        private const string _readPrompt = "maze-> ";
 
         public ConsoleApp(ILogger<ConsoleApp> logger)
         {
@@ -20,17 +20,23 @@ namespace cmdLinePoc
         {
             while(true)
             {
-                var t = ReadFromConsole();
-                if(string.IsNullOrWhiteSpace(t))
+                var input = ReadFromConsole();
+                if(string.IsNullOrWhiteSpace(input))
                 {
                     continue;
                 }
-
-                Parser.Default.ParseArguments<DeleteOptions, ConcatOptions>(t.Split(" "))
-                   .WithParsed<DeleteOptions>(async options => await options.Dowork())
-                   .WithParsed<ConcatOptions>(async options => await options.Dowork())
-                   .WithNotParsed(HandleParseError);
+                else if (input.ToLower().Equals("exit"))
+                {
+                    break;
+                }
+                else
+                {
+                    Parser.Default.ParseArguments<MazeOptions>(input.Split(" "))
+                    .WithParsed<MazeOptions>(async options => await options.DoWork())
+                    .WithNotParsed(HandleParseError);
+                }
             }
+            return Task.CompletedTask;
         }
 
         private void HandleParseError(IEnumerable<Error> errs)
