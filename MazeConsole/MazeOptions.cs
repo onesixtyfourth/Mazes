@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using CommandLine;
 using System;
-using MazeLib.Algorithms;
 using MazeLib.Factory;
 using MazeLib.Solvers;
 using MazeLib.Utilities;
